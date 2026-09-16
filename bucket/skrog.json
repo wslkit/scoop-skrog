@@ -1,0 +1,46 @@
+{
+    "version": "0.5.1",
+    "description": "Run the upstream open source Docker Engine on Windows via WSL2, with no licence fees.",
+    "homepage": "https://github.com/wslkit/skrog",
+    "license": "Apache-2.0",
+    "notes": [
+        "Installing this puts the `skrog` command on PATH. It does not provision anything yet.",
+        "",
+        "  skrog install     set up the engine (downloads a checksum-verified rootfs)",
+        "  skrog start       bring up the bridge",
+        "  docker run --rm hello-world",
+        "",
+        "Skrog does not install a docker CLI. Docker Desktop's works, or run `skrog cli install`.",
+        "",
+        "The binaries are not Authenticode-signed, so SmartScreen may warn on first run.",
+        "Every release carries SLSA provenance and a cosign-signed SHA256SUMS; see",
+        "https://wslkit.github.io/skrog/security/"
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/wslkit/skrog/releases/download/v0.5.1/skrog_0.5.1_windows_amd64.zip",
+            "hash": "4b2f56912e3e681e75480951cc804519edb2449551489fbe57979f1efe8aafd0"
+        },
+        "arm64": {
+            "url": "https://github.com/wslkit/skrog/releases/download/v0.5.1/skrog_0.5.1_windows_arm64.zip",
+            "hash": "3832d028262480dfdace84395f8cc94619fc0b79cf8c445b84db505f094bd7d5"
+        }
+    },
+    "bin": "skrog.exe",
+    "checkver": {
+        "github": "https://github.com/wslkit/skrog"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/wslkit/skrog/releases/download/v$version/skrog_$version_windows_amd64.zip"
+            },
+            "arm64": {
+                "url": "https://github.com/wslkit/skrog/releases/download/v$version/skrog_$version_windows_arm64.zip"
+            }
+        },
+        "hash": {
+            "url": "https://github.com/wslkit/skrog/releases/download/v$version/SHA256SUMS"
+        }
+    }
+}
