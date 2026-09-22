@@ -1,5 +1,5 @@
 {
-    "version": "0.6.0",
+    "version": "0.7.1",
     "description": "Run the upstream open source Docker Engine on Windows via WSL2, with no licence fees.",
     "homepage": "https://github.com/wslkit/skrog",
     "license": "Apache-2.0",
@@ -12,10 +12,12 @@
         "",
         "Skrog does not install a docker CLI. Docker Desktop's works, or run `skrog cli install`.",
         "",
-        "ON WINDOWS ON ARM: skrog.exe runs natively, but the engine rootfs is built",
-        "amd64-only, so `skrog install` refuses (exit 4). WSL2 runs the guest on the",
-        "host CPU, so there is no emulation route. See",
-        "https://github.com/wslkit/skrog/issues/388",
+        "ON WINDOWS ON ARM: supported since 0.7.0. skrog.exe, the engine rootfs and",
+        "dockerd are all native arm64, and `skrog install` picks the right one with no",
+        "flag. One caveat stated plainly: the arm64 engine has never been run inside a",
+        "WSL2 utility VM on Windows on ARM, because no hosted arm64 Windows runner",
+        "exposes nested virtualization. It is built and boot-tested natively in CI. See",
+        "https://github.com/wslkit/skrog/blob/main/docs/install.md#windows-on-arm",
         "",
         "The binaries are not Authenticode-signed, so SmartScreen may warn on first run.",
         "Every release carries SLSA provenance and a cosign-signed SHA256SUMS; see",
@@ -23,12 +25,12 @@
     ],
     "architecture": {
         "64bit": {
-            "url": "https://github.com/wslkit/skrog/releases/download/v0.6.0/skrog_0.6.0_windows_amd64.zip",
-            "hash": "85f1c68d6bbe67b420917be5c562f662ccfd5f56ca39a8b9e15e074e731a17cc"
+            "url": "https://github.com/wslkit/skrog/releases/download/v0.7.1/skrog_0.7.1_windows_amd64.zip",
+            "hash": "b0dbf6e2a29b6de9805b556954f80e4a5d81f1843ef21676df9949aa17c2a556"
         },
         "arm64": {
-            "url": "https://github.com/wslkit/skrog/releases/download/v0.6.0/skrog_0.6.0_windows_arm64.zip",
-            "hash": "b502b337ac5401734d5b98d78049269c28fd8c3eab7b4d26f10a64c542134647"
+            "url": "https://github.com/wslkit/skrog/releases/download/v0.7.1/skrog_0.7.1_windows_arm64.zip",
+            "hash": "ab680b22498bba625dfd86509e524c1872c385b155ab84fc1530b51969c19210"
         }
     },
     "bin": "skrog.exe",
