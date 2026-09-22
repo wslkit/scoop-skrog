@@ -9,19 +9,35 @@ scoop bucket add skrog https://github.com/wslkit/scoop-skrog
 scoop install skrog
 ```
 
+That puts the `skrog` command on PATH and provisions nothing. Then:
+
+```powershell
+skrog install                  # the engine: a checksum-verified rootfs in its own WSL2 distro
+skrog start                    # the bridge
+docker run --rm hello-world
+```
+
+You also need a `docker` command, and Skrog does not install one by default —
+Docker Desktop's works, or `skrog cli install` fetches the upstream tools.
+
 ## Status
 
-**No manifest yet.** This bucket exists so the name is claimed under the
-`wslkit` org; the manifest lands when Skrog has signed release binaries.
+**Skrog 0.5.1 is in the bucket.**
 
-Until then, install Skrog from the
-[release zip](https://github.com/wslkit/skrog/releases) and verify it against
-the published `SHA256SUMS`. Binaries are not yet signed, so SmartScreen will
-warn — that is what the signing work is for, and why this bucket is empty rather
-than pointing at an unsigned build.
+This page used to say the manifest was waiting on signed release binaries. That
+was wrong, and it held the bucket empty for no reason: Scoop installs unsigned
+archives as a matter of course — that is essentially what Scoop *is* — and it
+asks for no elevation and no Authenticode signature. Nothing here ever depended
+on the signing work.
 
-Watch [wslkit/skrog#77](https://github.com/wslkit/skrog/issues/77) for progress
-on signing and distribution.
+What signing would change is SmartScreen warning on first run of `skrog.exe`.
+That part is real and still open:
+[wslkit/skrog#77](https://github.com/wslkit/skrog/issues/77).
+
+Every release also carries SLSA build provenance and a cosign-signed
+`SHA256SUMS`, which tie the artifact to a workflow run and a commit — two checks
+an Authenticode signature does not give you. See
+[verifying a download](https://wslkit.github.io/skrog/security/).
 
 ## What goes here
 
