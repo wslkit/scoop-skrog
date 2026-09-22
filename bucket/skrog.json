@@ -1,5 +1,5 @@
 {
-    "version": "0.7.1",
+    "version": "0.8.0",
     "description": "Run the upstream open source Docker Engine on Windows via WSL2, with no licence fees.",
     "homepage": "https://github.com/wslkit/skrog",
     "license": "Apache-2.0",
@@ -25,12 +25,12 @@
     ],
     "architecture": {
         "64bit": {
-            "url": "https://github.com/wslkit/skrog/releases/download/v0.7.1/skrog_0.7.1_windows_amd64.zip",
-            "hash": "b0dbf6e2a29b6de9805b556954f80e4a5d81f1843ef21676df9949aa17c2a556"
+            "url": "https://github.com/wslkit/skrog/releases/download/v0.8.0/skrog_0.8.0_windows_amd64.zip",
+            "hash": "3e18705ba37bf21e9dfc1c816e4764aa19db961d021716fc2fee4e853315c2b2"
         },
         "arm64": {
-            "url": "https://github.com/wslkit/skrog/releases/download/v0.7.1/skrog_0.7.1_windows_arm64.zip",
-            "hash": "ab680b22498bba625dfd86509e524c1872c385b155ab84fc1530b51969c19210"
+            "url": "https://github.com/wslkit/skrog/releases/download/v0.8.0/skrog_0.8.0_windows_arm64.zip",
+            "hash": "a0bf5ab2f5befe9a38223edad5f083722881c47e7bdde9da7b45f8acfa048b30"
         }
     },
     "bin": "skrog.exe",
